@@ -19,7 +19,7 @@ await connectCloudinary()
 
 
 // Allow Multiple Origins
-const allowedOrigins = ['http://localhost:5173']
+const allowedOrigins = ['http://localhost:5173', 'https://green-cart-umber.vercel.app']
 
 // Middleware confirguration
 app.use(express.json());
