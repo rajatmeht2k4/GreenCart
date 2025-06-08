@@ -31,10 +31,10 @@ const ProductDetails = () => {
     return product && (
         <div className="mt-12">
             <p>
-                <Link to={"/"}>Home</Link>
-                <Link to={"/products"}> Products</Link>
-                <Link to={`/products/${product.category.toLowerCase()}`}> {product.category}</Link> 
-                <span className="text-primary"> {product.name}</span>
+                <Link to={"/"}>Home / </Link>
+                <Link to={"/products"}> Products / </Link>
+                <Link to={`/products/${product.category.toLowerCase()}`}> {product.category} /</Link> 
+                 <span className="text-primary">  {product.name}</span>
             </p>
 
             <div className="flex flex-col md:flex-row gap-16 mt-4">
@@ -91,7 +91,7 @@ const ProductDetails = () => {
                     <p className="text-3xl font-medium">Related Product</p>
                     <div className="w-20 h-0.5 bg-primary rounded-full mt-2"></div>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6 lg:grid-cols-5 mt-6 w-full">
+                <div className="grid grid-cols-1 place-items-center sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6 lg:grid-cols-5 mt-6 w-full">
                     {relatedProducts.filter((product)=> product.inStock).map((product, index)=>(
                         <ProductCard key={index} product={product} />
                     ))}
