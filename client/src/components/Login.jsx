@@ -1,9 +1,11 @@
 import React from 'react'
 import { useAppContext } from '../context/AppContext';
 import toast from 'react-hot-toast';
+import { useLocation } from 'react-router-dom';
 
 const Login = () => {
     const {setShowUserLogin, setUser, axios, navigate} = useAppContext();
+    const location = useLocation();
 
     const [state, setState] = React.useState("login");
     const [name, setName] = React.useState("");
@@ -17,7 +19,7 @@ const Login = () => {
                 name,email,password
             });
             if (data.success) {
-                navigate('/')
+                navigate(location.pathname)
                 setUser(data.user)
                 setShowUserLogin(false);
             } else {

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const Cart = () => {
     
-    const {products, currency, cartItems, removeFromCart, getCartCount, updateCartItem, navigate, getCartAmount, axios, user, setCartItems} = useAppContext();
+    const {products, currency, cartItems, removeFromCart, getCartCount, updateCartItem, navigate, getCartAmount, axios, user, setCartItems, setShowUserLogin} = useAppContext();
     
     const [cartArray, setCartArray] = useState([]);
     const [addresses, setAddresses] = useState([]);
@@ -136,7 +136,15 @@ const Cart = () => {
                     <p className="text-sm font-medium uppercase">Delivery Address</p>
                     <div className="relative flex justify-between items-start mt-2">
                         <p className="text-gray-500">{selectedAddress ? `${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.state}, ${selectedAddress.country}` : "No address found" }</p>
-                        <button onClick={() => setShowAddress(!showAddress)} className="text-primary hover:underline cursor-pointer">
+                        <button onClick={() =>{ 
+                            if(!user){
+                                toast.error("Please login to change address");
+                                setShowUserLogin(true) 
+                            }
+                            else{
+                                setShowAddress(!showAddress); 
+                            }
+                            }} className="text-primary hover:underline cursor-pointer">
                             Change
                         </button>
                         {showAddress && (
