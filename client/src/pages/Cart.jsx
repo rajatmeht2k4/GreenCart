@@ -9,6 +9,7 @@ const Cart = () => {
     
     const [cartArray, setCartArray] = useState([]);
     const [addresses, setAddresses] = useState([]);
+    
     const [showAddress, setShowAddress] = useState(false)
 
     const [selectedAddress, setSelectedAddress]= useState(null);
